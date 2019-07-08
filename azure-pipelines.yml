@@ -1,18 +1,8 @@
-variables:
-  'system.debug': true
+pool:
+  vmImage: 'ubuntu-16.04'
 
-jobs:
-- job: noncontainer
-  steps:
-  - task: Cache@0
-    inputs:
-      key: azure-pipelines.yml
-      path: somefolder
-
-- job: container
-  container: ubuntu:16.04
-  steps:
-  - task: Cache@0
-    inputs:
-      key: azure-pipelines.yml
-      path: somefolder
+steps:
+- task: Cache@0
+  inputs:
+    key: azure-pipelines.yml
+    path: somefolder
