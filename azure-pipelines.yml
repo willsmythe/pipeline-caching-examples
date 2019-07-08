@@ -11,4 +11,8 @@ steps:
     key: $(Build.SourcesDirectory)/azure-pipelines.yml
     path: somefolder
 
-- bash: echo "$(ls -la)"
+- bash: |
+    echo "$(ls -la)"
+    echo "$(ls -la ../..)"
+    echo "$(ls -la ../../..)"
+
