@@ -7,4 +7,6 @@ steps:
     key: $(Build.SourcesDirectory)/package.json
     path: node_modules
 
+- bash: du -sh .
+
 - bash: npm install
