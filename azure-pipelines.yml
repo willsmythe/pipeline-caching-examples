@@ -2,7 +2,11 @@ pool:
   vmImage: 'ubuntu-16.04'
 
 steps:
+- bash: rm -rf somefolder
+
 - task: Cache@0
   inputs:
     key: foo
     path: somefolder
+
+- bash: ls -la
