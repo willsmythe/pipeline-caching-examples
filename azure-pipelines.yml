@@ -9,7 +9,7 @@ steps:
 - task: Cache@0
   inputs:
     key: $(Build.SourcesDirectory)/azure-pipelines.yml
-    path: somefolder
+    path: $(Build.SourcesDirectory)/somefolder
 
 - bash: |
     echo "$(ls -la)"
