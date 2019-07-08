@@ -1,7 +1,11 @@
 pool:
   vmImage: 'ubuntu-16.04'
 
+container: ubuntu:16.04
+
 steps:
+- bash: du -sh .
+
 - task: Cache@0
   inputs:
     key: $(Build.SourcesDirectory)/package.json
