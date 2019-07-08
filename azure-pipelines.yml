@@ -4,5 +4,5 @@ pool:
 steps:
 - task: Cache@0
   inputs:
-    key: azure-pipelines.yml
+    key: $(Build.SourcesDirectory)/azure-pipelines.yml
     path: somefolder
