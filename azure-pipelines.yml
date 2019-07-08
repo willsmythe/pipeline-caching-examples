@@ -13,6 +13,4 @@ steps:
 
 - bash: |
     echo "$(ls -la)"
-    echo "$(ls -la ../..)"
-    echo "$(ls -la ../../..)"
-
+    echo "$(ls -la $(Agent.WorkFolder) )"
