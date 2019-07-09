@@ -11,7 +11,8 @@ steps:
   displayName: set foopath
 
 - bash: |
-    echo "foopath with {}: ${foopath}"
+    echo "printenv | sort"
+    echo "foopath as normal variable: $foopath"
     echo "foopath with (): $(foopath)"
     echo "BSD: $(Build.SourcesDirectory)"
     echo "PW: $(Pipeline.Workspace)"
