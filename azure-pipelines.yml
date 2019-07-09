@@ -7,13 +7,19 @@ steps:
 - bash: du -sh .
 
 - bash: |
+    echo "##vso[task.setvariable variable=foopath]$(Build.SourcesDirectory)"
+  displayName: set foopath
+
+- bash: |
+    echo "foopath with {}: ${foopath}"
+    echo "foopath with (): $(foopath)"
     echo "BSD: $(Build.SourcesDirectory)"
     echo "PW: $(Pipeline.Workspace)"
   displayName: Show sources directory and pipeline workspace
 
 - task: Cache@0
   inputs:
-    key: $(Build.SourcesDirectory)/package.json
+    key: $(foopath)/package.json
     path: node_modules
 
 - bash: du -sh .
