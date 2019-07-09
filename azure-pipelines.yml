@@ -6,15 +6,13 @@ container: node:10.16.0-jessie
 steps:
 - bash: du -sh .
 
-- bash: |
-    echo "bsd: $(Build.SourcesDirectory)"
-    echo "##vso[task.setvariable variable=foo]$(Build.SourcesDirectory)"
-
 - task: Cache@0
   inputs:
-    key: $(foo)/package.json
+    key: |
+      $(Build.SourcesDirectory)/package.json
+      $[hash('yarn.lock')]
+      $[hash('$(Build.SourcesDirectory)/yarn.lock')]
+      s$[hash('$(Build.SourcesDirectory)/yarn.lock')]e
     path: node_modules
-
-- bash: du -sh .
 
 - bash: npm install
